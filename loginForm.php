@@ -5,7 +5,9 @@ if (isset($_SESSION["visite"]))
     $_SESSION["visite"]++;
 else
     $_SESSION["visite"] = 1;
-
+    // unset($_SESSION["visite"]); --> ELIMINA UN ELEMENTO DALL'ARRAY
+    //session_destroy();
+    echo "visite: " . $_SESSION["visite"] . "</br>";
 ?>
 
 <?php
@@ -14,11 +16,13 @@ echo "<br/>";
 
 if (isset($_COOKIE["user"])) {
     header("Location: checkData.php");
+    $_COOKIE["sessione"] = $_SESSION;
     //echo "Ciao " . $_COOKIE["user"] . "!";
     //setcookie("nome", "", time()-3600);
 } else {
     echo "benvenuto per la prima volta";
 }
+setcookie("sessione", $_SESSION["visite"], time() + (60*60));
 // echo $_COOKIE["nome"];
 ?>
 
