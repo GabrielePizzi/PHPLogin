@@ -1,4 +1,14 @@
 <?php
+
+session_start();
+if (isset($_SESSION["visite"]))
+    $_SESSION["visite"]++;
+else
+    $_SESSION["visite"] = 1;
+
+?>
+
+<?php
 print_r($_COOKIE);
 echo "<br/>";
 
