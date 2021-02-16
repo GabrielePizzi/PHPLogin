@@ -22,6 +22,12 @@ if (isset($_COOKIE["user"])) {
 } else {
     echo "benvenuto per la prima volta";
 }
+if (isset($_COOKIE["tentativi"]) = $_COOKIE["user"]){       //PROVA1 tentativi
+    $_COOKIE["tentativi"]++
+}else {
+}
+
+    
 setcookie("sessione", $_SESSION["visite"], time() + (60*60));
 // echo $_COOKIE["nome"];
 ?>
