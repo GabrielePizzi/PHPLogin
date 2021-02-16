@@ -8,12 +8,17 @@ else
     // unset($_SESSION["visite"]); --> ELIMINA UN ELEMENTO DALL'ARRAY
     //session_destroy();
     echo "visite: " . $_SESSION["visite"] . "</br>";
+
+    if (isset($_SESSION["tentativi"])) //PROVA1 tentativi
+        $_SESSION["tentativi"]++;
+        echo "tentativi: " . $_SESSION["tentativi"] . "</br>"; 
+
 ?>
 
 <?php
 print_r($_COOKIE);
 echo "<br/>";
-
+$_COOKIE["tentativi"]
 if (isset($_COOKIE["user"])) {
     header("Location: home.php");
     $_COOKIE["sessione"] = $_SESSION;
@@ -22,15 +27,13 @@ if (isset($_COOKIE["user"])) {
 } else {
     echo "benvenuto per la prima volta";
 }
-if (isset($_COOKIE["tentativi"]) = $_COOKIE["user"]){       //PROVA1 tentativi
-    $_COOKIE["tentativi"]++
-}else {
-}
-
-    
 setcookie("sessione", $_SESSION["visite"], time() + (60*60));
 // echo $_COOKIE["nome"];
+setcookie("tentativi", $_SESSION["tentativi"], time() + (60*60)); //PROVA1 tentativi
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
